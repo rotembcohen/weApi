@@ -40,15 +40,19 @@ class CreateTables extends Migration
             $table->string('postalCode');
             $table->string('latitude');
             $table->string('longitude');
+            $table->unsignedInteger('countryId');
             $table->foreign('countryId')
                 ->references('id')
                 ->on('countries')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->integer('regionalCategory');
+            $table->unsignedInteger('marketId');
             $table->foreign('marketId')
                 ->references('id')
                 ->on('markets')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->integer('submarketId');
             $table->integer('locationId');
             $table->timestamps();
