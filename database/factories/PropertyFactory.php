@@ -15,7 +15,7 @@ $factory->define(App\Property::class, function (Faker $faker) {
         'address1' => $faker->address,
         'address2' => $faker->address,
         'city' => $faker->city,
-        'state' => $faker->state,
+        'state' => $faker->stateAbbr,
         'postalCode' => $faker->postcode,
         'latitude' => $faker->latitude($min = -90, $max = 90),
         'longitude' => $faker->longitude($min = -180, $max = 180),
