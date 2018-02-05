@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('properties', 'PropertyController@index');
+Route::get('properties/{property}', 'PropertyController@show');
+Route::post('properties', 'PropertyController@store');
+Route::put('properties/{property}', 'PropertyController@update');
+//Route::delete('properties/{property}', 'PropertyController@delete');
