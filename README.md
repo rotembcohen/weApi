@@ -23,6 +23,7 @@ Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-t
 * **GET** /properties/
 * **POST** /properties/
 * **PUT** /properties/<property_id>
+* **GET** /properties/<property_id>
 
 ### Still Missing ###
 
