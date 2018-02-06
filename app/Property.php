@@ -20,5 +20,7 @@ class Property extends Model
         'regionalCategory',
         'submarketId',
         'locationId',
+        'countryId',
+        'marketId',
     ];
 }
