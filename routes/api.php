@@ -13,6 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
+/*Auth routes*/
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
+
+
+/*Property CRUD*/
 Route::get('properties', 'PropertyController@index');
 Route::get('properties/{property}', 'PropertyController@show');
 Route::post('properties', 'PropertyController@store');
