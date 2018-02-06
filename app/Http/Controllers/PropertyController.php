@@ -9,7 +9,7 @@ class PropertyController extends Controller
 {
     public function index()
     {
-        return Property::all();
+        return Property::orderByDesc('name')->get();
     }
 
     public function show(Property $property)
