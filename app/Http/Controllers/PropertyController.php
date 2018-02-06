@@ -19,7 +19,24 @@ class PropertyController extends Controller
 
     public function store(Request $request)
     {
-        $property = Property::create($request->all());
+        $data = $request->validate([
+            'name' => 'required|max:255',
+            'desks' => 'numeric',
+            'Sf' => 'numeric',
+            'address1' => 'required',
+            'city' => 'required|max:255',
+            'state' => 'required|max:2',
+            'postalCode' => 'required|max:10',
+            'latitude' => 'required|max:255',
+            'longitude' => 'required|max:255',
+            'countryId' => 'required|numeric|max:255',
+            'regionalCategory' => 'numeric',
+            'marketId' =>'required|numeric|max:255',
+            'submarketId' =>'numeric',
+            'locationId' =>'numeric',
+        ]);
+
+        $property = tap(new Property($data))->save();
 
         return response()->json($property, 201);
     }
