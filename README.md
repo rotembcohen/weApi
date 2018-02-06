@@ -16,6 +16,7 @@ Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-t
 * `php artisan key:generate`
 * Create a database and inform .env file
 * `php artisan migrate --seed` to create and populate tables
+* Run `vendor/bin/phpunit` to run unit tests
 * `php artisan serve` to start the app on http://localhost:8000/
 
 ### Available Endpoints ###
