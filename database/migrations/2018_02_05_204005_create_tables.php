@@ -46,15 +46,15 @@ class CreateTables extends Migration
                 ->on('countries')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('regionalCategory'->nullable());
+            $table->integer('regionalCategory')->nullable();
             $table->unsignedInteger('marketId');
             $table->foreign('marketId')
                 ->references('id')
                 ->on('markets')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('submarketId'->nullable());
-            $table->integer('locationId'->nullable());
+            $table->integer('submarketId')->nullable();
+            $table->integer('locationId')->nullable();
             $table->timestamps();
         });
     }
