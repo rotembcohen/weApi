@@ -31,13 +31,13 @@ class CreateTables extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('desks');
-            $table->integer('Sf');
+            $table->integer('desks')->nullable();
+            $table->integer('Sf')->nullable();
             $table->text('address1');
-            $table->text('address2');
+            $table->text('address2')->nullable();
             $table->string('city');
             $table->string('state');
-            $table->string('postalCode');
+            $table->string('postalCode')->nullable();
             $table->string('latitude');
             $table->string('longitude');
             $table->unsignedInteger('countryId');
@@ -46,15 +46,15 @@ class CreateTables extends Migration
                 ->on('countries')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('regionalCategory');
+            $table->integer('regionalCategory'->nullable());
             $table->unsignedInteger('marketId');
             $table->foreign('marketId')
                 ->references('id')
                 ->on('markets')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('submarketId');
-            $table->integer('locationId');
+            $table->integer('submarketId'->nullable());
+            $table->integer('locationId'->nullable());
             $table->timestamps();
         });
     }
