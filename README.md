@@ -2,6 +2,11 @@
 
 Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-test/blob/master/docs/stories.md) using [Laravel 5.5.33](https://laravel.com/).
 
+### Prerequisites ###
+* Composer
+* Laravel
+* Database (MySQL,SQLite,PostgreSQL or Microsoft SQL Server)
+
 ### Installation ###
 
 * `git clone https://github.com/rotembcohen/weApi`
