@@ -7,13 +7,15 @@ $factory->define(App\Property::class, function (Faker $faker) {
 	//remember to seed some markets and countries before seeding properties
     $countryIds = App\Country::all()->pluck('id')->toArray();
 	$marketIds = App\Market::all()->pluck('id')->toArray();
+
+    $addressArr = explode(PHP_EOL, $faker->address);
 	
 	return [
         'name' => substr($faker->sentence(2), 0, -1),
         'desks' => $faker->numberBetween($min = 1000,$max = 9999),
         'Sf' => $faker->numberBetween($min = 10, $max = 999999),
-        'address1' => $faker->address,
-        'address2' => $faker->address,
+        'address1' => $addressArr[0],
+        'address2' => $addressArr[1],
         'city' => $faker->city,
         'state' => $faker->stateAbbr,
         'postalCode' => $faker->postcode,
