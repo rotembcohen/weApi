@@ -19,12 +19,48 @@ Afterwards:
 
 ### Available Endpoints ###
 
-* **GET** /properties/
-* **POST** /properties/
-* **PUT** /properties/<property_id>
-* **GET** /properties/<property_id>
+* **GET** /api/properties/
 
-### Still Missing ###
+Returns all available properties, ordered by name descending.
 
-* More tests
-* Expand the documentation
+* **POST** /api/properties/
+
+Inserts a new property. Sample JSON body:
+```
+{
+  "name": "195 Broadway",
+  "desks": 342,
+  "Sf": 1230400,
+  "address1": "195 Broadway, New York,  10007",
+  "address2": null,
+  "city": "Manhattan",
+  "state": "NY",
+  "postalCode": null,
+  "latitude": "40.7108825",
+  "longitude": "-74.0109063",
+  "countryId": 3,
+  "regionalCategory": 14,
+  "marketId": 4,
+  "submarketId": 20,
+  "locationId": 3
+}
+```
+
+The following fields are required:
+name, address1, city, state (as 2 letters), latitude, longitude.
+Also countryId & marketId must be noted, of which exists an object for in the database.
+Note that the database seeds 5 of each when initializes populating id's 1-5.
+
+* **PUT** /api/properties/<property_id>
+
+Edits an existing property. Must still follow requirements as POST endpoint. Sample JSON body:
+```
+{
+  "desks": 999,
+}
+```
+
+* **GET** /api/properties/<property_id>
+
+Retrieves an existing property.
+
