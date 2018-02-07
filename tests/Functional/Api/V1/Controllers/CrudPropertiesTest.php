@@ -148,13 +148,12 @@ class CrudPropertiesTest extends TestCase
 
     /** @test */ 
     function property_is_not_edited_if_validation_fails() {
-        $desksRepresentedAsString = "Twenty";
-
+        
         $propertyIds = Property::all()->pluck('id')->toArray();
         $randomId = $propertyIds[mt_rand(0, count($propertyIds) - 1)];
 
         $response = $this->put('/api/properties/'.$randomId, [
-            "desks" => $desksRepresentedAsString
+            "name" => null
         ],[
             'Authorization' => 'Bearer ' . $this->token
         ]);
