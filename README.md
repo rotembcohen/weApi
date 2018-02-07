@@ -4,8 +4,7 @@ Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-t
 
 ### Prerequisites ###
 * Composer
-* Laravel
-* Database (MySQL,SQLite,PostgreSQL or Microsoft SQL Server)
+* Laravel 5.5.*
 
 ### Installation ###
 
