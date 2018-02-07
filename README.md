@@ -20,9 +20,6 @@ Afterwards:
 ### Available Endpoints ###
 
 * **GET** /properties/
-
-examples???
-
 * **POST** /properties/
 * **PUT** /properties/<property_id>
 * **GET** /properties/<property_id>
