@@ -63,10 +63,10 @@ Inserts a new property. Sample JSON body:
 }
 ```
 
-The following fields are required:
+The following parameters are required:
 name, address1, city, state (as 2 letters), latitude, longitude.
 Also countryId & marketId must be noted, of which exists an object for in the database.
-Note that the database seeds 5 of each when initializes populating id's 1-5.
+Note that the database seeds 5 of each when initializes populating IDs 1-5.
 
 * **PUT** /api/properties/<property_id>
 
@@ -81,3 +81,24 @@ Edits an existing property. Must still follow requirements as POST endpoint. Sam
 
 Retrieves an existing property.
 
+## Codebase ##
+
+* \app\Api\V1\Controllers\PropertyController:
+
+Handles all property requests
+
+* \app\Country, \app\Market, \app\Property:
+
+Object models
+
+* \database\factories & \database\seeds:
+
+Seeds an initial database with dummy data
+
+* \routes\api.php:
+
+Handles routing
+
+* \tests\Functional\Api\V1\Controllers\CrudPropertiesTest.php:
+
+Unit tests
