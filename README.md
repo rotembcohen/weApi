@@ -14,6 +14,7 @@ Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-t
 * `composer install`
 * `mv .env.example .env`
 * `php artisan key:generate`
+* `php artisan jwt:secret`
 * Create a database and inform .env file
 * `php artisan migrate --seed` to create and populate tables
 * Run `vendor/bin/phpunit` to run unit tests
@@ -28,6 +29,5 @@ Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-t
 
 ### Still Missing ###
 
-* JWT token implementation
 * More tests
 * Expand the documentation
