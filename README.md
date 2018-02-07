@@ -17,7 +17,7 @@ Afterwards:
 * `php artisan serve` to start the app on http://localhost:8000/ (to use a remote RDS database)
 * Edit the .env file if you wish to test on other databases (currently supports MySQL, Microsoft SQL Server, Postgres and SQLite)
 
-### Available Endpoints ###
+## Available Endpoints ##
 
 * **POST** /api/auth/signup/ or **POST** /api/auth/login/
 
