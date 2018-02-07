@@ -5,8 +5,9 @@ use Illuminate\Database\Seeder;
 class TestSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
+     * Run the unit test seeds. Allows special test only tinkering.
+     * Note too large numbers will hurt test run time.
+     * 
      * @return void
      */
     public function run()

@@ -9,11 +9,22 @@ use App\Property;
 class PropertyController extends Controller
 {
 
+    /**
+     * Retrieves all properties
+     *
+     * @return \App\Property array
+     */
     public function index()
     {
         return Property::orderByDesc('name')->get();
     }
 
+    /**
+     * Retreives a single property
+     *
+     * @param Unsigned Integer $id
+     * @return \App\Property
+     */
     public function show($id)
     {
         $property = Property::findOrFail($id);
@@ -21,8 +32,15 @@ class PropertyController extends Controller
         return $property;
     }
 
+    /**
+     * Creates a single property
+     *
+     * @param \Illuminate\Http\Request
+     * @return \App\Property
+     */
     public function store(Request $request)
     {
+        
         $data = $request->validate([
             'name' => 'required|max:255',
             'desks' => 'numeric',
@@ -40,11 +58,19 @@ class PropertyController extends Controller
             'locationId' =>'numeric',
         ]);
 
+        // allows for creating the property, saving it and storing it into $property variable
         $property = tap(new Property($data))->save();
 
         return response()->json($property, 201);
     }
 
+    /**
+     * updates an existing property
+     *
+     * @param \Illuminate\Http\Request
+     * @param Unsigned Integer $id
+     * @return \App\Property
+     */
     public function update(Request $request, $id)
     {
         $property = Property::findOrFail($id);
@@ -53,6 +79,14 @@ class PropertyController extends Controller
 
         return response()->json($property, 200);
     }
+
+    /**
+     * deletes an existing property.
+     * commented out since not required by API.
+     *
+     * @param Unsigned Integer $id
+     * @return void
+     */
     /*
     public function delete($id)
     {

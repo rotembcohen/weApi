@@ -175,8 +175,4 @@ class CrudPropertiesTest extends TestCase
         
     }
 
-    /** @test */
-    // function user_can_view_sorted_property_list() {}
-
-
 }

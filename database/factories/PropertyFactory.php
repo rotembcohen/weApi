@@ -4,10 +4,11 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Property::class, function (Faker $faker) {
     
-	//remember to seed some markets and countries before seeding properties
+	// assigns required foreign keys at random from currently available
     $countryIds = App\Country::all()->pluck('id')->toArray();
 	$marketIds = App\Market::all()->pluck('id')->toArray();
 
+    // separates fakes address to 2 lines
     $addressArr = explode(PHP_EOL, $faker->address);
 	
 	return [
@@ -25,7 +26,6 @@ $factory->define(App\Property::class, function (Faker $faker) {
         'submarketId' => $faker->numberBetween($min = 1, $max = 99),
         'locationId' => $faker->numberBetween($min = 1, $max = 99),
         
-        //select foreign key at random:
         'countryId' => $faker->randomElement($countryIds),
         'marketId' => $faker->randomElement($marketIds),
     ];

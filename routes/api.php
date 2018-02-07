@@ -18,6 +18,8 @@ $api->version('v1', function (Router $api) {
         $api->get('me', 'App\\Api\\V1\\Controllers\\UserController@me');
     });
 
+
+    // Property CRUD endpoints, protected by JWT:
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
         
         $api->get('properties', 'App\\Api\\V1\\Controllers\\PropertyController@index');

@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // make sure to first seed the markets and countries tables,
+        // so the property objects will have required foreign keys assigned.
         factory(App\Market::class, 5)->create();
         factory(App\Country::class, 5)->create();
         factory(App\Property::class, 10)->create();

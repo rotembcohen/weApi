@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
+    //All attributes are mass assignable
     protected $fillable = [
         'name',
         'desks',
