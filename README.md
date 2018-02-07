@@ -29,7 +29,7 @@ Register / log-in a new user. Returns JSON Web Token on success. Sample JSON bod
 }
 ```
 
-Use Authentication header with the content "Bearer <JWT>" and replace <JWT> with supplied token.
+Use Authentication header with the content "Bearer *JWT*" and replace *JWT* with supplied token.
 
 Authentication endpoints supplied by [laravel-api-boilerplate-jwt](https://github.com/francescomalatesta/laravel-api-boilerplate-jwt). Refer to their README for full documentation.
 
