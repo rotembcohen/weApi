@@ -33,8 +33,7 @@ abstract class TestCase extends BaseTestCase
     public function setUp()
     {
         parent::setUp();
-        DB::beginTransaction();
-        Artisan::call('migrate:refresh');
+        Artisan::call('migrate');
         $this->seed('TestSeeder');
     }
 
@@ -42,7 +41,6 @@ abstract class TestCase extends BaseTestCase
     protected function tearDown()
     {
         Artisan::call('migrate:reset');
-        DB::rollBack();
         parent::tearDown();
     }
 }
