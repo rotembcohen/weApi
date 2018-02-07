@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Market;
 use App\Country;
 use App\User;
+use App\Property;
 
 class CrudPropertiesTest extends TestCase
 {
@@ -127,16 +128,55 @@ class CrudPropertiesTest extends TestCase
         $response->assertStatus(201);
     }
 
-    // /** @test */
-    // function user_can_edit_an_existing_property() {}
+    /** @test */
+    function user_can_edit_an_existing_property() {
+        
+        $newName = "updated property name";
 
-    // /* @test */ 
-    // function property_is_not_edited_if_validation_fails() {}
+        $propertyIds = Property::all()->pluck('id')->toArray();
+        $randomId = $propertyIds[mt_rand(0, count($propertyIds) - 1)];
 
-    // /** @test */
-    // function error_if_property_doesnt_exist() {}
+        $response = $this->put('/api/properties/'.$randomId, [
+            "name" => $newName,
+        ],[
+            'Authorization' => 'Bearer ' . $this->token
+        ]);
 
-    // /** @test */
+        $response->assertStatus(200)->assertSee($newName);
+
+    }
+
+    /** @test */ 
+    function property_is_not_edited_if_validation_fails() {
+        $desksRepresentedAsString = "Twenty";
+
+        $propertyIds = Property::all()->pluck('id')->toArray();
+        $randomId = $propertyIds[mt_rand(0, count($propertyIds) - 1)];
+
+        $response = $this->put('/api/properties/'.$randomId, [
+            "desks" => $desksRepresentedAsString
+        ],[
+            'Authorization' => 'Bearer ' . $this->token
+        ]);
+
+        $response->assertStatus(500);        
+    }
+
+    /** @test */
+    function property_that_doesnt_exist_cannot_be_viewed() {
+
+        $propertiesCount = Property::count();
+        $overflowId = $propertiesCount + 1;
+
+        $response = $this->get('/api/properties/'.$overflowId, [],[
+            'Authorization' => 'Bearer ' . $this->token
+        ]);
+
+        $response->assertStatus(401);
+        
+    }
+
+    /** @test */
     // function user_can_view_sorted_property_list() {}
 
 

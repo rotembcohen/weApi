@@ -13,6 +13,6 @@ class TestSeeder extends Seeder
     {
         factory(App\Market::class, 5)->create();
         factory(App\Country::class, 5)->create();
-        // factory(App\Property::class, 3)->create();
+        factory(App\Property::class, 3)->create();
     }
 }

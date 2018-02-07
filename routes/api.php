@@ -19,32 +19,14 @@ $api->version('v1', function (Router $api) {
     });
 
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
-        $api->get('protected', function() {
-            return response()->json([
-                'message' => 'Access to protected resources granted! You are seeing this text as you provided the token correctly.'
-            ]);
-        });
         
-        $api->get('refresh', [
-            'middleware' => 'jwt.refresh',
-            function() {
-                return response()->json([
-                    'message' => 'By accessing this endpoint, you can refresh your access token at each request. Check out this response headers!'
-                ]);
-            }
-        ]);
-
         $api->get('properties', 'App\\Api\\V1\\Controllers\\PropertyController@index');
         $api->get('properties/{id}', 'App\\Api\\V1\\Controllers\\PropertyController@show');
         $api->post('properties', 'App\\Api\\V1\\Controllers\\PropertyController@store');
         $api->put('properties/{id}', 'App\\Api\\V1\\Controllers\\PropertyController@update');
-        //Route::delete('properties/{id}', 'PropertyController@delete');
+        //$api->delete('properties/{id}', 'PropertyController@delete');
 
     });
 
-    $api->get('hello', function() {
-        return response()->json([
-            'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
-        ]);
-    });
+    
 });

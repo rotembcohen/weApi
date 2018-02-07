@@ -54,8 +54,9 @@ class PropertyController extends Controller
         return response()->json($property, 200);
     }
     /*
-    public function delete(Property $property)
+    public function delete($id)
     {
+        $property = Property::findOrFail($id);
         $property->delete();
 
         return response()->json(null, 204);
