@@ -4,13 +4,12 @@ Implementing [User Story #2](https://github.com/WeConnect/physical-systems-api-t
 
 ### Prerequisites ###
 * Composer
-* Laravel 5.5.*
 
 ### Installation ###
 
 * `git clone https://github.com/rotembcohen/weApi`
 * `cd weApi`
-* Run `./install.sh`
+* Run `./install.sh` (installs Laravel and dependencies, migrates database and sets env variables)
 
 Afterwards:
 * `vendor/bin/phpunit` to run unit tests (on dummy memory-only database)
